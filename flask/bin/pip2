@@ -1,0 +1,11 @@
+#!/panfs/pan1.be-md.ncbi.nlm.nih.gov/pubchem_rnd/users/wangz18/project/FLASK_sparcle/flask/bin/python2.7
+
+# -*- coding: utf-8 -*-
+import re
+import sys
+
+from pip import main
+
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+    sys.exit(main())

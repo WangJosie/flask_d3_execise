@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+     <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+ </head>
+  <body>
+     <div class="container">
+        <div class="header">
+            <nav> <ul class="nav nav-pills pull-right">
+               <li role="presentation" class="active"><a href="#">Home</a>
+               </li>
+               <li role="presentation"><a href="#">Sign In</a>
+               </li>
+               <li role="presentation"><a href="showSignUp">Sign Up</a>
+               </li>
+               </ul>
+            </nav>
+                           
+            <h2 class="text-muted"> Protein specific domain archiecture clustering report </h2>
+       </div>
+     </div>
+
+    <div class="jumbotron">
+        <h3> Choose a dataset </h3> 
+        <form id='dom_inform' action='/result' method='post'>
+               <p>  
+               Domain architecture symbol : <input type ='text' name='dom'/>
+               </p>
+               <p>
+               <input type = 'submit' value='submit'/>
+               </p>
+        </form>   
+    </div>
+     
+      <footer class ='footer'>
+      <p> &Josie; 2016 </p>
+  </body>
+</html>
+
+

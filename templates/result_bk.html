@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+    <body>      
+       <table>
+            <tr>
+              <th> cluster id</th>
+              <th> gi </th>
+              <th> protein name </th>
+              <th> specific domain architecture </th>
+            <tr>  
+              {% for key  in result.keys() %}
+                {%for z in result[key] %}
+               <tr>
+                 <td> {{z["clusterid"]}}</td> 
+                 <td> {{z["gi"]}} </td>
+                 <td> {{z["name"]}}</td>
+                 <td> {{z["sda"]}}</td>
+               </tr>
+              {%endfor%}                                                                      
+              {% endfor %}
+       </table>                                                                                              
+     </body>
+</html>
