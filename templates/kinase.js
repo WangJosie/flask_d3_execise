@@ -1,24 +1,31 @@
   var width =750,
-      height =500; 
+      height =500;
 
+  var leaderScale=d3.scale.linear().range([10, 60]);
   var fill = d3.scale.category20();
 
-  d3.json("tmp.json", function(data) {
+  d3.csv("tmp.csv", function(data) {
     var leaders =data
-      .filter(function(d) {return +d.y >3; })
-      .map(function(d) {return {text:d.x, size: +d.y}; })
+      .filter(function(d) {return +d.count >3; })
+      .map(function(d) {return {text:d.label, size: +d.count}; })
       .sort(function (a, b) {return d3.descending(a.size, b.size); })
-      .slice(0, 100); 
+      .slice(0, 100);
+  leaderScale.domain([
+    d3.min(leaders,function(d) {return d.size;}),
+    d3.max(leaders,function(d) {return d.size;})
+  ]);
+
 
   d3.layout.cloud().size([width, height])
       .words(leaders)
-      .rotate(function() { return ~~(Math.random() * 2) * 90; })
+      .padding(0)
+      //.rotate(function() { return ~~(Math.random() * 2) * 90; })
       .font("Impact")
-      .fontSize(function(d) { return d.size; })
-      .on("end", draw)
+      .fontSize(function(d) { return leaderScale(d.size); })
+      .on("end", drawCloud)
        .start();
-
-  function draw(words) {
+ });
+  function drawCloud(words) {
      d3.select("#word-cloud").append("svg")
          .attr("width", width)
         .attr("height", height)
