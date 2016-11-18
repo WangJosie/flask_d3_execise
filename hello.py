@@ -54,7 +54,8 @@ def getdata():
             output.writelines("label,count"+"\n")
             for k, v in wordcount.items():
                 line=str(k )+","+str(v)
-                output.writelines(line+"\n") 
+                output.writelines(line+"\n")
+        print "ok"
     
         return redirect(url_for("drawCloud"))
 

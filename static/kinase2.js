@@ -1,12 +1,12 @@
-  var width =750,
-      height =500;
+  var width =500,
+      height =450;
 
   var leaderScale=d3.scale.linear().range([10, 60]);
   var fill = d3.scale.category20();
 
-  d3.csv("tmp.csv", function(data) {
+  d3.csv("/static/tmp.csv", function(data) {
     var leaders =data
-      .filter(function(d) {return +d.count >3; })
+      .filter(function(d) {return +d.count >2; })
       .map(function(d) {return {text:d.label, size: +d.count}; })
       .sort(function (a, b) {return d3.descending(a.size, b.size); })
       .slice(0, 100);
